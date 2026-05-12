@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bebas+Neue&family=Bungee&family=Climate+Crisis:YEAR@1979&family=Dancing+Script:wght@400..700&family=Eater&family=Great+Vibes&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Irish+Grover&family=Oswald:wght@200..700&family=Palanquin+Dark:wght@400;500;600;700&family=Piedra&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Bubbles&display=swap');
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-overlay iframe {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+    font-size: 40px;
+
+    cursor: pointer;
+
+    z-index: 10000;
+}
+
+.video-overlay {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.banner {
+    background-size: cover;
+    height: 100vh;
+}
+
+.banner::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: #00000052;
+}
+
+.content {
+    position: absolute;
+    width: 650px;
+    margin-top: 180px;
+    margin-left: 5%;
+}
+
+.tittle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    color: #fff;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+}
+
+.button {
+    margin-left: 15px;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #86868672;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    margin-top: 20px;
+    transition: 0.5s;
+    box-shadow: 0px 10px 30px -15px #000;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    background-color: #b0b0b057;
+    cursor: pointer;
+}
+
+.discription {
+    color: #e8e8e8;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.banner-mob {
+    display: none;
+}
+
+.banner_buttons-mob {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .banner {
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .banner::before {
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        background-color: #0000008a;
+    }
+
+    .content {
+        display: none;
+    }
+
+    .banner-mob {
+        width: 80%;
+        height: 350px;
+        background: #ffffff;
+        margin-left: 10%;
+        margin-top: 90px;
+        position: absolute;
+        border-radius: 10px;
+        display: block;
+        box-shadow: 0px 10px  30px -15px #000000;
+        border: 1px solid #fff;
+        background-size: cover;
+    }
+
+    .banner_buttons-mob {
+        position: absolute;
+        margin-top: 430px;
+        margin-left: 10%;
+        display: block;
+    }
+
+    .title-bg-mob{
+        width: 270px;
+        height: auto;
+        min-height: 50px;
+        background-color: #0000009e;
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+        margin: 270px 15px;
+    }
+    .mob-title{
+        color: #fff;
+        font-size: 20px;
+        font-family: 'Quicksand', sans-serif;
+        padding: 10px;
+    }
+}
+@media (max-width: 425px) {
+    .banner-mob{
+        background-size: 296.31px 350px;
+    }
+    
+}
