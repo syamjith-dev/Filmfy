@@ -36,7 +36,7 @@ const RowCards = () => {
 
         } else {
           console.log("trailer not available!")
-          alert("Sorry trailer is not available!")
+          alert("Sorry trailer not available!")
         }
 
       })

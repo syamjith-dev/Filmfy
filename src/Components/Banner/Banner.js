@@ -24,6 +24,7 @@ const Banner = () => {
                 setUrlId(response.data.results[0].key)
             } else {
                 console.log("trailer not available")
+                alert("Sorry trailer not availble!")
             }
 
         })
