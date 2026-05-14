@@ -130,11 +130,7 @@
         position: absolute;
         background-color: #0000008a;
     }
-
-    
-
-    
-   
+  
 }
 @media (max-width: 425px) {
     .content {
@@ -143,7 +139,7 @@
 
     .banner-mob {
         width: 80%;
-        height: 350px;
+        height: 460px;
         background: #ffffff;
         margin-left: 10%;
         margin-top: 70px;
@@ -156,7 +152,7 @@
 
     .banner_buttons-mob {
         position: absolute;
-        margin-top: 420px;
+        margin-top: 530px;
         margin-left: 10%;
         display: block;
     }

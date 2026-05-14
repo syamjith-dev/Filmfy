@@ -84,7 +84,7 @@
         width: 85%;
         margin-left: 7.5%;
         height: 150px;
-        margin-top: -260px;
+        margin-top: -230px;
     }
 
     .cards {
@@ -99,7 +99,7 @@
         background-color: none;
         border: none;
         position: absolute;
-        margin-top: -190px;
+        margin-top: -170px;
     }
 
     .bx-caret-right {
