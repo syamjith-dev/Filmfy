@@ -116,7 +116,7 @@
 @media (max-width: 768px) {
     .banner {
         background-size: cover;
-        height: 110vh;
+        height: 100vh;
         width: 100%;
         background-size: 768px 100vh;
     }
@@ -126,7 +126,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 110vh;
+        height: 100vh;
         position: absolute;
         background-color: #0000008a;
     }
