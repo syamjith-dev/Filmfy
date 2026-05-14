@@ -10,7 +10,7 @@ const Banner = () => {
     const [movie, setMovie] = useState({})
     const { setUrlId } = useContext(PlayerContext);
     useEffect(() => {
-        axios.get(`/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_genres=35`).then((response) => {
+        axios.get(`discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_original_language=ml&sort_by=popularity.desc&page=3`).then((response) => {
             const result = response.data.results;
             const randomIndex = Math.floor(Math.random() * result.length);
             setMovie(result[randomIndex]);
@@ -30,7 +30,8 @@ const Banner = () => {
     }
 
     return (
-        <div style={{ backgroundImage: movie?.backdrop_path ? `url(${imageUrl}${movie.backdrop_path})` : "none", }} className="banner">
+        <div style={{ backgroundImage: movie?.backdrop_path ? `url(${imageUrl}${movie.backdrop_path})` : "none", }} 
+        className="banner">
             <div className='content'>
                 <h1 className='tittle'>{movie.title || movie.name}</h1>
                 <div className="banner_buttons">
@@ -42,10 +43,7 @@ const Banner = () => {
             </div>
             {/* mobile-view */}
             <div className="banner-mob" 
-            style={{ backgroundImage: movie?.backdrop_path ? `url(${imageUrl}${movie.backdrop_path})` : "none", }}>
-                <div className="title-bg-mob">
-                    <h1 className='mob-title'>{movie.title || movie.name}</h1>
-                </div>
+            style={{ backgroundImage: movie?.poster_path ? `url(${imageUrl}${movie.poster_path})` : "none", }}>
             </div>
             <div className="banner_buttons-mob">
                     <button onClick={() => handleMovie(movie.id)}
