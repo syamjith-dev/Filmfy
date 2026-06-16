@@ -29,7 +29,7 @@ const Watchlist = () => {
       const res =
         await axios.get(
 
-          "http://localhost:5000/api/watchlist",
+          "http://cineverse-5xo9.onrender.com/api/watchlist",
 
           {
             headers: {
@@ -64,7 +64,7 @@ const Watchlist = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.delete(
-        `http://localhost:5000/api/watchlist/${movieId}`,
+        `http://lcineverse-5xo9.onrender.com/api/watchlist/${movieId}`,
         {
           headers: {
             Authorization: token,

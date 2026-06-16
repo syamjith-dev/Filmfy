@@ -26,7 +26,7 @@ const SignUp = () => {
     try {
 
       const res = await axios.post(
-        'http://localhost:5000/api/auth/signup',
+        'http://cineverse-5xo9.onrender.com/api/auth/signup',
         {
           name: userData.firstName,
           email: userData.email,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./NavBar.css";
-import { Link , useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
 
@@ -16,14 +16,14 @@ const NavBar = () => {
   };
 
   const handleWatchlistClick = () => {
-  if (!user) {
-    alert("Please login first!");
-    navigate("/login");
-  } else {
-    navigate("/watchlist");
-  }
-};
- 
+    if (!user) {
+      alert("Please login first!");
+      navigate("/login");
+    } else {
+      navigate("/watchlist");
+    }
+  };
+
 
   return (
     <div className='navbar'>
