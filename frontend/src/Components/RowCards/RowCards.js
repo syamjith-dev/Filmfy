@@ -4,11 +4,9 @@ import axios from "../../axios"
 import { imageUrl } from '../../Constants/Constants'
 import { useContext } from 'react';
 import { PlayerContext } from '../../Context/PlayerContext';
-import { useNavigate } from 'react-router-dom';
 
 const RowCards = (props) => {
 
-  const navigate = useNavigate();
 
   const [posters, setPosters] = useState([])
   const [selectedMovie, setSelectedMovie] = useState(null)

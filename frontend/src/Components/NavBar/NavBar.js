@@ -32,9 +32,9 @@ const NavBar = () => {
       <div className="nav-list">
 
         <ul className='ul-list'>
-          <a onClick={handleWatchlistClick} className='list-a'>
+          <h3 onClick={handleWatchlistClick} className='list-a'>
             <i className="bxf bx-list-play" style={{ color: "#ff0000" }} /> My List
-          </a>
+          </h3>
         </ul>
 
         <div className="profile-sec">
@@ -47,7 +47,7 @@ const NavBar = () => {
                 onClick={() => setOpen(!open)}
               >
 
-                <i class="bxf bx-user" style={{ color: "#f10000" }} /> Hi {user.name}
+                <i className="bxf bx-user" style={{ color: "#f10000" }} /> Hi {user.name}
 
                 <i
                   className={`bx ${open ? "bx-chevron-up" : "bx-chevron-down"

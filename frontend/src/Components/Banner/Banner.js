@@ -4,12 +4,11 @@ import axios from '../../axios';
 import { imageUrl } from '../../Constants/Constants';
 import { useContext } from 'react';
 import { PlayerContext } from '../../Context/PlayerContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+
 
 
 const Banner = (props) => {
 
-    const navigate = useNavigate();
 
     const rowRef = useRef();
 
