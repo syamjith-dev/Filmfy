@@ -1,0 +1,101 @@
+.main-title {
+    color: #fff;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 5px;
+}
+
+.watchlist-item {
+    margin-top: 10px;
+    background: #000000;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow-y: scroll;
+}
+
+.listed-movies {
+    width: 48%;
+    height: auto;
+    background-color: #2a2a2a;
+    margin: 10px 1%;
+    border-radius: 10px;
+    display: flex;
+}
+
+.movie-poster {
+    height: 300px;
+    padding: 10px 10px;
+    border-radius: 20px;
+}
+.movie-details{
+    width: 77%;
+    border-radius: 10px;
+    display: block;
+}
+.movie-title{
+    color: #ffffff;
+    margin: 10px 0px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 35px;
+}
+.rating{
+    margin-top: -25px;
+    font-size: 20px;
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+}
+.about-movie{
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: -10px;
+    letter-spacing: 1.5px;
+}
+.btn-watch{
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #ff0000;
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    transition: .5s;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.btn-watch:hover{
+    color: #1d1d1d;
+    background: #fff;
+}
+.remove-btn{
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #ffffff;
+    color: #000000;
+    font-family: 'Quicksand', sans-serif;
+    transition: .5s;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.remove-btn:hover{
+    transform: scale(1.1);
+    color: #ffffff;
+    background: #ff0000;
+}
+.home-btn{
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    margin: 20px ;
+    position: absolute;
+}

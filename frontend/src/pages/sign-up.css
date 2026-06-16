@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+}
+
+.sign-up-body{
+    background: url('../../public/bg.webp');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.sign-up-body::after{
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: #00000034;
+    backdrop-filter: blur(5px);
+} 
+.sign-up{
+    width: 380px;
+    height: 80vh;
+    background: #000000;
+    position: absolute;
+    z-index: 2;
+    margin: 10vh 37%;
+    border-radius: 12px;
+    border: 1px solid #494949;
+}
+.main-logo-sign{
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 50px;
+}
+.main-logo-sign span{
+    color: #ff0000;
+}
+.sub-heading{
+    text-align: center;
+    color: #ff0000;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 20px;
+}
+.sign-up label{
+    color: #fff;
+    font-family: 'Quciksand', sans-serif;
+    margin-left: 30px;
+    font-size: 24px;
+}
+.sign-up input{
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 81%;
+    height: 40px;
+    border: none;
+    background: #1f1f1f;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    padding-left: 10px;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0px 9px 0px -6px #ff000d;
+    border: 1px solid #525252ac;
+}
+
+
+#sign-up-btn{
+    background: #e50914;
+    margin: 20px 120px;
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: none;
+    color: #fff;
+    box-shadow: 0px 10px 30px -15px #000000;
+    width: 140px;
+    transition: .3s;
+}
+#sign-up-btn:hover{
+    transform: scale(1.1);
+    background: #fff;
+    color: #000000;
+    cursor: pointer;
+}

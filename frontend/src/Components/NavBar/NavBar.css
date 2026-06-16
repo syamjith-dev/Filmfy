@@ -1,0 +1,155 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 110%;
+    height: 65px;
+    /* background-color: #00000055; */
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    margin-left: -8px;
+    background: linear-gradient(to bottom,rgba(0, 0, 0, .9) ,transparent);
+    }
+
+    .logo {
+        position:fixed;
+        left: 5%;
+        top: -20px;
+        width: 160px;
+        z-index: 1;
+    }
+
+    .nav-list {
+        width: 70%;
+        height: 65px;
+        margin-left: 260px;
+    }
+
+    .ul-list {
+        justify-content: start;
+        margin-top: 20px;
+        /* background: #8a1616; */
+
+    }
+
+    .list-a {
+        color: #bbbbbb;
+        font-family: 'Quicksand', sans-serif;
+        transition: .5s;
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+    .list-a:hover {
+        color: #ffffff;
+    }
+
+    .bx-user {
+        margin-left: -22px;
+        top: 20px;
+        position: absolute;
+    }
+
+    .user_name {
+        margin-top:0px;
+    }
+
+    /* dropDown */
+    .profile-sec {
+        display: flex;
+        justify-content: end;
+    }
+
+    .dropdown-container {
+        position: absolute;
+        width: auto;
+        top: 20px;
+    }
+
+    .user_name {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        color: white;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 24px;
+    }
+
+    .bx-user {
+        top: 4px;
+        left: -10px;
+        font-size: 23px;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 35px;
+        right: 0;
+        width: 180px;
+        background: #141414;
+        border: 1px solid #333;
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    .dropdown-menu a,
+    .dropdown-menu button {
+        display: block;
+        width: 100%;
+        padding: 12px 15px;
+        font-family: 'Quicksand', sans-serif;
+        color: white;
+        text-decoration: none;
+        background: transparent;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .dropdown-menu a:hover,
+    .dropdown-menu button:hover {
+        background: #2a2a2a;
+    }
+
+    .sign-btn {
+        margin-left: 1100px;
+        margin-top: -25px;
+        font-size: 23px;
+        color: #ffff;
+        position: relative;
+        text-decoration: none;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    .bx-arrow-in-right-square-half {
+        font-size: 30px;
+        position: absolute;
+        left: -35px;
+    }
+
+
+
+
+    @media (max-width: 768px) {
+        .navbar ul {
+            display: none;
+        }
+
+        .navbar {
+            height: 30px;
+        }
+
+        .logo {
+            width: 120px;
+            top: 15px;
+        }
+
+        .navbar {
+            height: 50px;
+            background: #00000093;
+        }
+    }
