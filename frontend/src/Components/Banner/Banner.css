@@ -50,18 +50,19 @@
 .banner {
     background-size: cover;
     height: 100vh;
-    width: 111%;
-    margin-left: -10px;
+    width: 100%;
+    margin-top: 65px;
 }
 
 .banner::before {
     content: "";
     top: 0;
     left: 0;
-    width: 110%;
+    width: 100%;
     height: 101vh;
     position: absolute;
     background: linear-gradient(to top, #000000, #00000047);
+    margin-top: 65px;
 }
 
 .content {
@@ -71,6 +72,9 @@
     margin-left: 5%;
     /* background-color: #3e3e3e; */
 }
+.banner_logo{
+    margin-top: -60px;
+}
 
 .tittle {
     font-family: 'Bebas Neue', sans-serif;
@@ -79,9 +83,10 @@
     text-transform: uppercase;
     text-shadow: 0 4px 20px #000000cc;
     color: #fff;
-    
+
 }
-.btn1{
+
+.btn1 {
     font-size: 20px;
     padding: 10px 30px;
     border-radius: 10px;
@@ -94,6 +99,7 @@
     box-shadow: 0px 10px 30px -15px #000;
     font-family: 'Poppins', sans-serif;
 }
+
 .btn2 {
     margin-left: 15px;
     font-size: 20px;
@@ -110,6 +116,7 @@
     text-decoration: none;
     font-weight: 600;
 }
+
 .button:hover {
     transform: scale(1.1);
     background-color: #ffffff;
@@ -125,13 +132,8 @@
     text-shadow: 0 4px 20px #000000cc;
 }
 
-.banner-mob {
-    display: none;
-}
 
-.banner_buttons-mob {
-    display: none;
-}
+
 /* movies-posters */
 .posters-row {
     width: 100%;
@@ -142,7 +144,7 @@
     margin-top: 500px;
 }
 
-.img-container{
+.img-container {
     width: 90%;
     height: 260px;
     display: flex;
@@ -154,24 +156,27 @@
     margin-left: 5%;
     margin-top: 5px;
 }
-.subTittle{
+
+.subTittle {
     color: #fff;
     position: absolute;
     margin: 10px 0;
     font-family: 'Poppins', sans-serif;
 }
+
 .posters {
     width: 130px;
     height: 180px;
     border-radius: 10px;
     margin-top: 60px;
     transition: .3s;
-    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
 }
 
 .posters:hover {
     transform: scale(1.1);
 }
+
 .bx-caret-left {
     font-size: 35px;
     margin-left: 20px;
@@ -181,25 +186,29 @@
     position: absolute;
 
 }
+
 .bx-caret-right {
     z-index: 0;
     margin-left: 96%;
     font-size: 35px;
     color: #ffffff;
 }
+
 ::-webkit-scrollbar {
     display: none;
 }
-.raitng-lang{
+
+.raitng-lang {
     color: #fff;
     font-family: 'Quicksand', sans-serif;
     margin-top: 10px;
 }
-.banner_logo{
-    max-width:500px;
-    max-height:180px;
-    object-fit:contain;
-    margin-bottom:-15px;
+
+.banner_logo {
+    max-width: 500px;
+    max-height: 180px;
+    object-fit: contain;
+    margin-bottom: -15px;
 }
 
 
@@ -210,10 +219,11 @@
 
 @media (max-width: 768px) {
     .banner {
-        background-size: cover;
-        height: 100vh;
+        background: #e00303;
         width: 100%;
-        background-size: 768px 100vh;
+        height: 350px;
+        background-size: cover;
+        margin-top: 55px;
     }
 
     .banner::before {
@@ -221,35 +231,49 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
+        height: 350px;
         position: absolute;
-        background-color: #0000008a;
+        background: linear-gradient(to top, #000000, #00000057);
+        margin-top: 55px;
     }
-  
-}
-@media (max-width: 425px) {
+
     .content {
+        width: 95%;
+        height: 300px;
+        background: #038fe000;
+        margin-top: 55px;
+    }
+
+    .tittle {
+        font-size: 35px;
+    }
+
+    .banner_logo {
+        width: 200px;
+        margin-left: 10px;
+        margin-top: -25px;
+        margin-bottom: 10px;
+    }
+
+    .btn1 {
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+
+    .btn2 {
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+
+    .raitng-lang {
+        font-size: 15px;
+    }
+
+    .discription {
+        font-size: 15px;
+    }
+    .posters-row{
         display: none;
     }
 
-    .banner-mob {
-        width: 80%;
-        height: 460px;
-        background: #ffffff;
-        margin-left: 10%;
-        margin-top: 70px;
-        position: absolute;
-        border-radius: 10px;
-        display: block;
-        box-shadow: 0px 10px 30px -15px #000000;
-        background-size: cover;
-    }
-
-    .banner_buttons-mob {
-        position: absolute;
-        margin-top: 530px;
-        margin-left: 10%;
-        display: block;
-    }
-    
 }

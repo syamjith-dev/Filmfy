@@ -33,15 +33,7 @@ function Footer() {
                     <a href="/">Terms</a>
                 </div>
 
-                <div className="footer-social">
-
-                    <h4>Follow Us</h4>
-
-                    <div className="social-icons">
-                    </div>
-
-                </div>
-
+                
             </div>
 
             <div className="footer-bottom">

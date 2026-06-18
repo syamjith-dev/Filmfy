@@ -46,6 +46,7 @@ const SignUp = () => {
 
     } catch (err) {
       alert(err.response?.data?.message || 'Something went wrong');
+      navigate('/login')
     }
   };
 

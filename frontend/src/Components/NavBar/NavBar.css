@@ -1,155 +1,136 @@
-.navbar {
-    position: fixed;
+#navbar {
+    position: absolute;
     top: 0;
-    width: 110%;
+    width: 100%;
     height: 65px;
-    /* background-color: #00000055; */
-    backdrop-filter: blur(5px);
+    margin-left: -8px;
+    background: linear-gradient(to bottom, #19191900, #18181800);
+    z-index: 999;
+}
+
+.nav-list {
+    width: 90%;
+    height: 65px;
+    margin-left: 5%;
     display: flex;
     justify-content: space-between;
-    z-index: 2;
-    margin-left: -8px;
-    background: linear-gradient(to bottom,rgba(0, 0, 0, .9) ,transparent);
-    }
+    align-items: center;
+}
 
-    .logo {
-        position:fixed;
-        left: 5%;
-        top: -20px;
-        width: 160px;
-        z-index: 1;
-    }
+.logo {
+    width: 12%;
+    height: 65px;
+}
 
-    .nav-list {
-        width: 70%;
-        height: 65px;
-        margin-left: 260px;
-    }
+.ul-list {
+    width: 90%;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    .ul-list {
-        justify-content: start;
-        margin-top: 20px;
-        /* background: #8a1616; */
+.mylist {
+    color: #bbbbbb;
+    font-family: 'Quicksand', sans-serif;
+    transition: .5s;
+    font-size: 20px;
+    text-decoration: none;
+}
 
-    }
+.mylist:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
 
-    .list-a {
-        color: #bbbbbb;
-        font-family: 'Quicksand', sans-serif;
-        transition: .5s;
-        font-size: 18px;
-        text-decoration: none;
-    }
+/* dropDown */
 
-    .list-a:hover {
-        color: #ffffff;
-    }
+.user_name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+}
 
-    .bx-user {
-        margin-left: -22px;
-        top: 20px;
+.bx-user {
+    top: 4px;
+    left: -10px;
+    font-size: 23px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 65px;
+    right: 130;
+    width: 150px;
+    background: #141414;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background: #2a2a2a;
+}
+
+.sign-btn {
+    margin-left: 1100px;
+    margin-top: -25px;
+    font-size: 23px;
+    color: #ffff;
+    position: relative;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.bx-arrow-in-right-square-half {
+    font-size: 30px;
+    position: absolute;
+    left: -35px;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+    #navbar{
+        height: 55px;
         position: absolute;
+        z-index: 999;
     }
-
-    .user_name {
-        margin-top:0px;
+    .logo{
+        width: 100px;
     }
-
-    /* dropDown */
-    .profile-sec {
+    .ul-list{
         display: flex;
-        justify-content: end;
-    }
-
-    .dropdown-container {
-        position: absolute;
-        width: auto;
-        top: 20px;
-    }
-
-    .user_name {
-        display: flex;
+        justify-content: flex-end;
         align-items: center;
-        gap: 8px;
-        cursor: pointer;
-        color: white;
-        font-family: 'Quicksand', sans-serif;
-        font-size: 24px;
+    }
+    .mylist{
+        display: none;
+    }
+    .user_name{
+        font-size: 20px;
     }
 
-    .bx-user {
-        top: 4px;
-        left: -10px;
-        font-size: 23px;
-    }
-
-    .dropdown-menu {
-        position: absolute;
-        top: 35px;
-        right: 0;
-        width: 180px;
-        background: #141414;
-        border: 1px solid #333;
-        border-radius: 8px;
-        overflow: hidden;
-        z-index: 1000;
-    }
-
-    .dropdown-menu a,
-    .dropdown-menu button {
-        display: block;
-        width: 100%;
-        padding: 12px 15px;
-        font-family: 'Quicksand', sans-serif;
-        color: white;
-        text-decoration: none;
-        background: transparent;
-        border: none;
-        text-align: left;
-        cursor: pointer;
-        font-size: 18px;
-    }
-
-    .dropdown-menu a:hover,
-    .dropdown-menu button:hover {
-        background: #2a2a2a;
-    }
-
-    .sign-btn {
-        margin-left: 1100px;
-        margin-top: -25px;
-        font-size: 23px;
-        color: #ffff;
-        position: relative;
-        text-decoration: none;
-        font-family: 'Quicksand', sans-serif;
-    }
-
-    .bx-arrow-in-right-square-half {
-        font-size: 30px;
-        position: absolute;
-        left: -35px;
-    }
-
-
-
-
-    @media (max-width: 768px) {
-        .navbar ul {
-            display: none;
-        }
-
-        .navbar {
-            height: 30px;
-        }
-
-        .logo {
-            width: 120px;
-            top: 15px;
-        }
-
-        .navbar {
-            height: 50px;
-            background: #00000093;
-        }
-    }
+}

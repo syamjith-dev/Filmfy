@@ -233,20 +233,6 @@ const Banner = (props) => {
                 <p className="discription">{movie ? movie.overview : ""} </p>
             </div>
 
-            {/* mobile-view */}
-            <div className="banner-mob"
-                style={{ backgroundImage: movie?.poster_path ? `url(${imageUrl}${movie.poster_path})` : "none", }}>
-            </div>
-            <div className="banner_buttons-mob">
-                <button onClick={() => handleMovie(movie.id)}
-                    className="button"><i className="bxf bx-play" />Play</button>
-                <button className="button">
-                    {
-                        addedMovies.includes(movie.id) ? "Added" : "+ whatchlist"
-                    }
-                </button>
-            </div>
-
             {/* row-posters */}
             <div className='posters-row'>
 

@@ -131,7 +131,7 @@ const RowCards = (props) => {
           {/* LEFT ARROW */}
           <i
             onClick={scrollLeft}
-            className="bx bx-caret-left left-arrow"
+            className="bx bx-caret-left left-arrow" style={{display:'none'}}
           />
 
           {/* POSTERS */}
@@ -159,7 +159,7 @@ const RowCards = (props) => {
           {/* RIGHT ARROW */}
           <i
             onClick={scrollRight}
-            className="bx bx-caret-right right-arrow"
+            className="bx bx-caret-right right-arrow" style={{display:'none'}}
           />
 
         </div>

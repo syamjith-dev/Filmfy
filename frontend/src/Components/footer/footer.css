@@ -2,7 +2,7 @@
     background:#0a0a0a;
     color:#b3b3b3;
     padding:60px 8%;
-    margin-top:80px;
+    margin-top:10px;
     border-top:1px solid rgba(255,255,255,.08);
 }
 
@@ -27,6 +27,8 @@
 .footer-brand p{
     margin-top:10px;
     color:#888;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
 }
 
 .footer-links{
@@ -38,12 +40,15 @@
 .footer-links h4{
     color:white;
     margin-bottom:10px;
+    font-family: 'Inter', sans-serif;
 }
 
 .footer-links a{
     text-decoration:none;
     color:#999;
     transition:.3s;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
 }
 
 .footer-links a:hover{
@@ -72,4 +77,5 @@
     border-top:1px solid rgba(255,255,255,.08);
     text-align:center;
     color:#777;
+    font-family: 'Inter', sans-serif;
 }
