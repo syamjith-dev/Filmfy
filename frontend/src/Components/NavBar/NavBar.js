@@ -65,12 +65,6 @@ const NavBar = () => {
               </Link>
             )}
           </div>
-          {/* <i class="bx bx-menu" id='bx-menu' /> */}
-
-          {/* mobile-sidemenu
-          <div className="sidemenu">
-            <i class="bx bx-x-circle" id='close-btn'/>
-          </div> */}
         </ul>
       </div>
     </div>
