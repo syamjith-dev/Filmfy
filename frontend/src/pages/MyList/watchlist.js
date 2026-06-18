@@ -91,7 +91,7 @@ const Watchlist = () => {
       <i class="bx bx-arrow-big-left-line" /> Home
       </Link>
       <h1 className="main-title">
-        My Watchlist
+        <span>M</span>y Watchlist
       </h1>
       <div className="watchlist-item">
         {

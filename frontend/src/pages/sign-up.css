@@ -86,3 +86,18 @@
     color: #000000;
     cursor: pointer;
 }
+@media (max-width: 768px){
+    .sign-up-body{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+    }
+    .sign-up{
+        width: 90%;
+        overflow: hidden;
+    }
+    #sign-up-btn{
+        margin-left: 100px;
+    }
+}

@@ -124,15 +124,14 @@ const Login = () => {
             Login
           </button>
 
-          <p className='p'>
-            New user?{' '}
+        
             <Link
               to="/sign-up"
               className='sing-up'
             >
               Sign up
             </Link>
-          </p>
+          
 
         </form>
 

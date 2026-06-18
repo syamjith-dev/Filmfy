@@ -4,6 +4,9 @@
     font-family: 'Quicksand', sans-serif;
     margin-top: 5px;
 }
+.main-title span{
+    color: #ff0000;
+}
 
 .watchlist-item {
     margin-top: 10px;
@@ -98,4 +101,26 @@
     font-family: 'Quicksand', sans-serif;
     margin: 20px ;
     position: absolute;
+}
+
+@media (max-width: 768px){
+    .bx-arrow-big-left-line{
+        margin-top: 30px;
+    }
+    .watchlist-item{
+        margin-top: 40px;
+    }
+    .listed-movies{
+        width: 90%;
+        margin-left: 5%;
+    }
+    .movie-poster{
+        height: 200px;
+    }
+    .movie-details{
+        /* background-color: brown; */
+        margin-top: 220px;
+        margin-left: -145px;
+        width: 95%;
+    }
 }

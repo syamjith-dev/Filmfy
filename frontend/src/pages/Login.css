@@ -68,7 +68,7 @@
 }
 .forgot{
     margin-left: 110px;
-    color: #00ff66;
+    color: #0091ff;
     font-family: 'Quicksand', sans-serif;
     margin-top: 10px;
     text-decoration: none;
@@ -91,13 +91,31 @@
     box-shadow: 0px 10px 30px -10px #ff000d;
     cursor: pointer;
 }
-.login .p{
-    color: #fff;
-    margin: 0px 120px;
-    width: 150px;
-    font-family: 'Quicksand', sans-serif;
-}
+
 .sing-up{
     color: #007bff;
     text-decoration: none;
+    margin-left: 165px;
+}
+
+@media (max-width: 768px){
+    .login-page-body{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+    }
+    .login{
+        width: 90%;
+        overflow: hidden;
+    }
+    .forgot{
+        margin-left: 90px;
+    }
+    #login-btn{
+        margin-left: 120px;
+    }
+    .sing-up{
+        margin-left: 145px;
+    }
 }
