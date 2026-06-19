@@ -58,13 +58,13 @@ const Watchlist = () => {
     })
   };
 
-  const removeMovie = async (movieId) => {
+  const removeMovie = async (movieId, movieTitle) => {
     console.log("Deleting movieId:", movieId);
     try {
       const token = localStorage.getItem("token");
 
       const confirmDelete = window.confirm(
-        "Remove this movie from watchlist?"
+        `Remove ${movieTitle} from your watchlist?`
       );
 
       if (!confirmDelete) return;
@@ -117,7 +117,7 @@ const Watchlist = () => {
                 <button className="btn-watch" onClick={() => handleMovie(movie.movieId)} >
                   Watch Now
                 </button>
-                <button className="remove-btn" onClick={() => removeMovie(movie.movieId)}>
+                <button className="remove-btn" onClick={() => removeMovie(movie.movieId, movie.title)}>
                   <i class="bx bx-trash" />Remove
                 </button>
               </div>
