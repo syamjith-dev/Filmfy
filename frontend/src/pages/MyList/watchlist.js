@@ -63,8 +63,14 @@ const Watchlist = () => {
     try {
       const token = localStorage.getItem("token");
 
+      const confirmDelete = window.confirm(
+        "Remove this movie from watchlist?"
+      );
+
+      if (!confirmDelete) return;
+
       const response = await axios.delete(
-        `https://lcineverse-5xo9.onrender.com/api/watchlist/${movieId}`,
+        `https://cineverse-5xo9.onrender.com/api/watchlist/${movieId}`,
         {
           headers: {
             Authorization: token,
@@ -81,6 +87,7 @@ const Watchlist = () => {
       console.log(response.data);
     } catch (error) {
       console.log(error.response?.data);
+      alert("some problem here!!!")
     }
   };
 
@@ -88,7 +95,7 @@ const Watchlist = () => {
 
     <div>
       <Link to='/' className="home-btn">
-      <i class="bx bx-arrow-big-left-line" /> Home
+        <i class="bx bx-arrow-big-left-line" /> Home
       </Link>
       <h1 className="main-title">
         <span>M</span>y Watchlist
@@ -107,7 +114,7 @@ const Watchlist = () => {
               />
               <div className="movie-details">
                 <h1 className="movie-title">{movie.title}</h1><br />
-                <p className="rating">⭐ {movie.vote_average} | {movie.original_language === "ml" ? "Malayalam" : movie.original_language }</p> <br />
+                <p className="rating">⭐ {movie.vote_average} | {movie.original_language === "ml" ? "Malayalam" : movie.original_language}</p> <br />
                 <p className="about-movie">{movie.overview}</p>
                 <button className="btn-watch" onClick={() => handleMovie(movie.movieId)} >
                   Watch Now

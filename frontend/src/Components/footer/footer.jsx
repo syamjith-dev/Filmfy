@@ -37,7 +37,7 @@ function Footer() {
             </div>
 
             <div className="footer-bottom">
-                © 2026 CineVerse. All Rights Reserved.
+                © 2026 Filmfy. All Rights Reserved.
             </div>
 
         </footer>

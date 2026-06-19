@@ -189,7 +189,7 @@ const Banner = (props) => {
             setAddedMovies(prev => [...prev, movie.id]);
 
         } catch (error) {
-            console.log(error);
+            alert("Please login first!")
         }
     };
 
