@@ -78,8 +78,6 @@ const Watchlist = () => {
         }
       );
 
-      alert("Remove this movie in watchlist?")
-
       setMovies(prev =>
         prev.filter(movie => movie.movieId !== movieId)
       );
