@@ -34,7 +34,11 @@ const SignUp = () => {
         }
       );
 
-      alert(res.data.message);
+      const email = userData.email;
+
+      navigate("/verify-otp", {
+        state: { email }
+      });
 
       setUserData({
         firstName: '',
@@ -42,11 +46,13 @@ const SignUp = () => {
         password: ''
       });
 
-      navigate('/login');
+      alert("OTP sent to your email");
 
     } catch (err) {
-      alert(err.response?.data?.message || 'Something went wrong');
-      navigate('/login')
+      alert(
+        err.response?.data?.message ||
+        "Something went wrong"
+      );
     }
   };
 

@@ -1,34 +1,27 @@
-require("dotenv").config();
+require("dotenv").config({
+  path: "./backend/.env"
+});
+
+console.log("EMAIL:", process.env.EMAIL);
+console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD ? "Loaded" : "Not Loaded");
 
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+const authRoutes = require("./routes/auth");
+const watchlistRoutes = require("./routes/watchlist");
+
 const app = express();
 
-app.use(cors({
-  origin: [
-    "https://filmfy.netlify.app",
-    "http://localhost:3000"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
-
+app.use(cors());
 app.use(express.json());
-
-app.use((req, res, next) => {
-  console.log(req.method, req.url);
-  next();
-});
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-app.use("/api/auth", require("./routes/auth"));
-
-const watchlistRoutes = require("./routes/watchlist");
+app.use("/api/auth", authRoutes);
 app.use("/api/watchlist", watchlistRoutes);
 
 const PORT = process.env.PORT || 5000;
