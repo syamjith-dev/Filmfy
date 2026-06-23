@@ -1,5 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const router = express.Router();
 
@@ -27,21 +28,32 @@ router.post("/signup", async (req, res) => {
     const hashedPassword =
       await bcrypt.hash(password, 10);
 
-    console.log("Signup Request:", email);
+    // console.log("Signup Request:", email);
 
     const otp = Math.floor(
       100000 + Math.random() * 900000
     ).toString();
 
-    console.log("Generated OTP:", otp);
+    const otpExpiry = new Date(
+      Date.now() + 60 * 1000
+    );
+
+    const user = new User({
+      name,
+      email,
+      password: hashedPassword,
+      otp,
+      otpExpiry: new Date(Date.now() + 60 * 1000),
+      isVerified: false
+    });
 
     await user.save();
 
-    console.log("User Saved");
+    // console.log("Generated OTP:", otp);
 
     await sendOTP(email, otp);
 
-    console.log("OTP sent to:", email);
+    // console.log("OTP sent to:", email);
 
     res.status(201).json({
       success: true,
@@ -67,6 +79,55 @@ router.post("/verify-otp", async (req, res) => {
 
     const { email, otp } = req.body;
 
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found"
+      });
+    }
+
+    if (new Date() > user.otpExpiry) {
+      return res.status(400).json({
+        message: "OTP expired"
+      });
+    }
+
+    if (user.otp !== otp) {
+      return res.status(400).json({
+        message: "Invalid OTP"
+      });
+    }
+
+    user.isVerified = true;
+    user.otp = "";
+    user.otpExpiry = null;
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Email verified successfully"
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+
+});
+// resend otp
+router.post("/resend-otp", async (req, res) => {
+
+  try {
+
+    const { email } = req.body;
+
     const user =
       await User.findOne({ email });
 
@@ -78,37 +139,26 @@ router.post("/verify-otp", async (req, res) => {
 
     }
 
-    if (user.otpExpiry < Date.now()) {
+    const otp = Math.floor(
+      100000 + Math.random() * 900000
+    ).toString();
 
-      return res.status(400).json({
-        message: "OTP expired"
-      });
+    user.otp = otp;
 
-    }
-
-    if (user.otp !== otp) {
-
-      return res.status(400).json({
-        message: "Invalid OTP"
-      });
-
-    }
-
-    user.isVerified = true;
-
-    user.otp = null;
-
-    user.otpExpiry = null;
+    user.otpExpiry = new Date(
+      Date.now() + 90 * 1000
+    );
 
     await user.save();
 
+    await sendOTP(email, otp);
+
     res.status(200).json({
       success: true,
-      message: "Email verified successfully"
+      message: "OTP resent successfully"
     });
 
-  }
-  catch (error) {
+  } catch (error) {
 
     res.status(500).json({
       message: error.message
@@ -121,25 +171,78 @@ router.post("/verify-otp", async (req, res) => {
 
 
 // LOGIN
+// LOGIN
 router.post("/login", async (req, res) => {
 
-  const { email, password } = req.body;
+  try {
 
-  const user = await User.findOne({ email });
+    const { email, password } = req.body;
 
-  if (!user) {
-    return res.status(400).json({
-      message: "User not found"
+    // Find user
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "User not found"
+      });
+    }
+
+    // Check email verification
+    if (!user.isVerified) {
+      return res.status(400).json({
+        success: false,
+        message: "Please verify your email first"
+      });
+    }
+
+    // Compare password
+    const isMatch = await bcrypt.compare(
+      password,
+      user.password
+    );
+
+    if (!isMatch) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid password"
+      });
+    }
+
+    // Generate JWT
+    const token = jwt.sign(
+      {
+        id: user._id,
+        email: user.email
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "7d"
+      }
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Login successful",
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email
+      }
     });
-  }
 
-  if (!user.isVerified) {
-    return res.status(400).json({
-      message: "Please verify your email first"
+  } catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+      success: false,
+      message: error.message
     });
-  }
 
-  // password check here
+  }
 
 });
+
 module.exports = router;

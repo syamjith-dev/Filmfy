@@ -1,22 +1,76 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import './verifyOTP.css'
 
-const VerifyOTP = () => {
+function VerifyOtp() {
 
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const email = location.state?.email;
 
   const [otp, setOtp] = useState("");
 
-  const verifyOTP = async () => {
+  const [timer, setTimer] = useState(60);
+
+  const [canResend, setCanResend] = useState(false);
+
+  useEffect(() => {
+
+    if (timer <= 0) {
+
+      setCanResend(true);
+
+      return;
+
+    }
+
+    const interval = setInterval(() => {
+
+      setTimer(prev => prev - 1);
+
+    }, 1000);
+
+    return () => clearInterval(interval);
+
+  }, [timer]);
+
+
+  const resendOtp = async () => {
+
+    try {
+
+      await axios.post(
+        "http://localhost:5000/api/auth/resend-otp",
+        {
+          email
+        }
+      );
+
+      setTimer(10);
+
+      setCanResend(false);
+
+      alert("OTP sent again");
+
+    } catch (error) {
+
+      alert(
+        error.response?.data?.message
+      );
+
+    }
+
+  };
+
+
+  const handleVerify = async () => {
 
     try {
 
       const res = await axios.post(
-        "https://cineverse-5xo9.onrender.com/api/auth/verify-otp",
+        "http://localhost:5000/api/auth/verify-otp",
         {
           email,
           otp
@@ -30,7 +84,8 @@ const VerifyOTP = () => {
     } catch (err) {
 
       alert(
-        err.response?.data?.message
+        err.response?.data?.message ||
+        "Verification failed"
       );
 
     }
@@ -38,23 +93,40 @@ const VerifyOTP = () => {
   };
 
   return (
-    <div>
-      <h2>Verify OTP</h2>
+    <div className="main-body">
+      <div className="verify-otp">
+        <h2 className="main-heading"> <span>V</span>erify OTP</h2>
 
-      <input
-        type="text"
-        placeholder="Enter OTP"
-        value={otp}
-        onChange={(e)=>
-          setOtp(e.target.value)
-        }
-      />
+        <p className="Email">{email}</p>
 
-      <button onClick={verifyOTP}>
-        Verify OTP
-      </button>
+        <input 
+          className="input-otp"
+          type="text"
+          placeholder="Enter OTP"
+          value={otp}
+          onChange={(e) => setOtp(e.target.value)}
+        />
+
+        <button onClick={handleVerify} className="verify-btn">
+          Verify OTP
+        </button>
+
+        <p style={{ color: "#ffff" }} className="counter">
+          OTP expires in:
+          {Math.floor(timer / 60)}:
+          {String(timer % 60).padStart(2, "0")}
+        </p>
+
+        <button
+          onClick={resendOtp}
+          disabled={!canResend}
+          className="resend-otp"
+        >
+          Resend OTP
+        </button>
+      </div>
     </div>
   );
-};
+}
 
-export default VerifyOTP;
+export default VerifyOtp;
