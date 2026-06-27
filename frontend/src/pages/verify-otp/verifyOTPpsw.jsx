@@ -3,7 +3,7 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import './verifyOTP.css'
 
-function VerifyOtp() {
+function VerifyOTPpsw() {
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ function VerifyOtp() {
     try {
 
       await axios.post(
-        "http://localhost:5000/api/auth/resend-otp",
+        "https://cineverse-5xo9.onrender.com/api/auth/resend-otp",
         {
           email
         }
@@ -70,7 +70,7 @@ function VerifyOtp() {
     try {
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/verify-otp",
+        "https://cineverse-5xo9.onrender.com/api/auth/verify-otp",
         {
           email,
           otp
@@ -79,7 +79,9 @@ function VerifyOtp() {
 
       alert(res.data.message);
 
-      navigate("/login");
+      navigate("/reset-psw", {
+        state: { email }
+      });
 
     } catch (err) {
 
@@ -129,4 +131,4 @@ function VerifyOtp() {
   );
 }
 
-export default VerifyOtp;
+export default VerifyOTPpsw;

@@ -26,11 +26,12 @@
     gap: 10px;
     margin-left: 5%;
 }
+
 .img-container::before,
-.img-container::after{
-    content:'';
-    position:absolute;
-    width:80px;
+.img-container::after {
+    content: '';
+    position: absolute;
+    width: 80px;
 }
 
 .subTittle {
@@ -60,7 +61,6 @@
     background-color: none;
     border: none;
     position: absolute;
-
 }
 
 .right-arrow {
@@ -138,7 +138,8 @@
     color: #aaa;
     margin-bottom: 20px;
 }
-.movie-info{
+
+.movie-info {
     font-family: 'Qicksand', sans-serif;
 }
 
@@ -166,11 +167,13 @@
     font-family: 'Quicksand', sans-serif;
     transition: .5s;
 }
-.watch-btn:hover{
+
+.watch-btn:hover {
     transform: scale(1.1);
     color: #1d1d1d;
     background: #fff;
 }
+
 .add-btn {
     width: auto;
     border: none;
@@ -180,11 +183,13 @@
     transition: .5s;
     padding: 0px 15px;
 }
-.add-btn:hover{
+
+.add-btn:hover {
     transform: scale(1.1);
     color: #ffffff;
     background: #ff0000;
 }
+
 .close-btn {
     position: absolute;
     top: 15px;
@@ -199,69 +204,95 @@
     cursor: pointer;
 }
 
+.rowcard_logo {
+    max-width: 300px;
+    max-height: 180px;
+    object-fit: contain;
+    margin-bottom: -15px;
+}
+
 
 
 
 @media (max-width: 768px) {
-    .subTittle{
+    .subTittle {
         font-size: 20px;
         margin-top: 10px;
         position: absolute;
     }
-    .movies{
+
+    .movies {
         height: 130px;
 
     }
-    .movies-row{
+
+    .movies-row {
         margin-left: 10px;
         height: 200px;
         margin-top: 0px;
     }
-    .img-container{
+
+    .img-container {
         height: 200px;
         margin-top: 0px;
     }
-    .divmain{
+
+    .divmain {
         height: 200px;
         margin-top: auto;
     }
 
 
-    .movie-modal{
+    .movie-modal {
         width: 90%;
         overflow-y: scroll;
     }
-    .modal-banner{
+
+    .modal-banner {
         width: 140px;
         height: 200px;
         margin: 10px;
         border-radius: 10px;
     }
-    .modal-content{
+
+    .modal-content {
         width: 90%;
         margin-left: 0px;
         margin-top: -10px;
         position: absolute;
         z-index: 999;
     }
-    .modal-content h1{
+
+    .modal-content h1 {
         margin-top: -15px;
         font-size: 35px;
     }
-    .movie-info{
+
+    .movie-info {
         font-size: 15px;
         margin-top: -10px;
     }
-    .modal-content p{
+
+    .modal-content p {
         font-size: 15px;
         margin-top: -10px;
     }
-    .watch-btn{
+
+    .watch-btn {
         font-size: 15px;
         margin-bottom: 10px;
     }
-    .add-btn{
+
+    .add-btn {
         font-size: 15px;
         margin-bottom: 10px;
+    }
+
+    .left-arrow {
+        display: none;
+    }
+
+    .right-arrow {
+        display: none;
     }
 }

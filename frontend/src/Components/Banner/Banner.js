@@ -19,24 +19,24 @@ const Banner = (props) => {
     const [logo, setLogo] = useState(null);
 
     useEffect(() => {
-    async function fetchData() {
+        async function fetchData() {
 
-        const response = await axios.get(
-            `/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_original_language=ml`
-        );
+            const response = await axios.get(
+                `/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_original_language=ml`
+            );
 
-        const movies = response.data.results;
+            const movies = response.data.results;
 
-        const randomMovie =
-            movies[Math.floor(Math.random() * movies.length)];
+            const randomMovie =
+                movies[Math.floor(Math.random() * movies.length)];
 
-        setMovie(randomMovie);
+            setMovie(randomMovie);
 
-        fetchMovieLogo(randomMovie.id);
-    }
+            fetchMovieLogo(randomMovie.id);
+        }
 
-    fetchData();
-}, []);
+        fetchData();
+    }, []);
 
     const handleMovie = (id) => {
         console.log(id)
@@ -120,17 +120,17 @@ const Banner = (props) => {
     }
     useEffect(() => {
 
-    if(movie?.id){
-        fetchMovieLogo(movie.id);
-    }
+        if (movie?.id) {
+            fetchMovieLogo(movie.id);
+        }
 
-}, [movie]);
+    }, [movie]);
 
     // posters click
     const handleClick = (movie) => {
         setMovie(movie)
 
-        
+
     }
 
 
@@ -199,7 +199,7 @@ const Banner = (props) => {
         <div style={{ backgroundImage: movie?.backdrop_path ? `url(${imageUrl}${movie.backdrop_path})` : "none", }}
             className="banner">
             <div className='content'>
-                <h1 className='tittle'>{
+                <h1 className='rowcardTittle'>{
                     logo ? (
 
                         <img

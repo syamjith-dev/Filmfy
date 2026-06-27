@@ -12,6 +12,11 @@
     width:300px;
     animation:logoReveal 2.5s ease forwards;
 }
+@media (max-width: 768px) {
+    .splash-logo{
+        width: 200px;
+    }
+}
 
 @keyframes logoReveal{
 

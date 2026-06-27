@@ -2,120 +2,102 @@
     margin: 0;
 }
 
-.login-page-body{
-    background-image: url('../../public/bg.webp');
+.sign-up-body{
+    background: url('../../../public/bg.webp');
     background-size: cover;
     width: 100%;
     height: 100vh;
 }
-.login-page-body::after{
+.sign-up-body::after{
     content: "";
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     position: absolute;
-    background: #00000077;
+    background: #00000034;
     backdrop-filter: blur(5px);
 } 
-.login{
+.sign-up{
     width: 380px;
     height: 80vh;
+    background: #000000;
     position: absolute;
     z-index: 2;
     margin: 10vh 37%;
     border-radius: 12px;
-    background: #000000;
-    border: 1px solid #4a4a4af5;
+    border: 1px solid #494949;
 }
-.main-logo{
+.main-logo-sign{
     color: #fff;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     font-size: 45px;
     margin-top: 50px;
 }
-.main-logo span{
+.main-logo-sign span{
     color: #ff0000;
 }
-.sub-head{
+.sub-heading{
     text-align: center;
     color: #ff0000;
     font-family: 'Quicksand', sans-serif;
     margin-top: 20px;
-    margin-bottom: 40px;
 }
-.login label{
+.sign-up label{
     color: #fff;
     font-family: 'Quciksand', sans-serif;
-    margin-left: 50px;
+    margin-left: 30px;
     font-size: 24px;
 }
-.input-form{
+.sign-up input{
     margin-left: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
     width: 81%;
     height: 40px;
     border: none;
+    background: #1f1f1f;
     border-radius: 10px;
-    background: #141414;
     color: #fff;
     font-size: 18px;
     padding-left: 10px;
     font-family: 'Quicksand', sans-serif;
     box-shadow: 0px 9px 0px -6px #ff000d;
+    border: 1px solid #525252ac;
 }
-.forgot{
-    margin-left: 110px;
-    color: #0091ff;
-    font-family: 'Quicksand', sans-serif;
-    margin-top: 10px;
-    text-decoration: none;
-}
-#login-btn{
+
+
+#sign-up-btn{
     background: #e50914;
-    margin: 30px 140px;
+    margin: 20px 120px;
     font-size: 24px;
     padding: 10px 20px;
     border-radius: 12px;
     border: none;
     color: #fff;
     box-shadow: 0px 10px 30px -15px #000000;
+    width: 140px;
     transition: .3s;
 }
-#login-btn:hover{
+#sign-up-btn:hover{
     transform: scale(1.1);
     background: #fff;
-    color: #000;
-    box-shadow: 0px 10px 30px -10px #ff000d;
+    color: #000000;
     cursor: pointer;
 }
-
-.sing-up{
-    color: #007bff;
-    text-decoration: none;
-    margin-left: 165px;
-}
-
 @media (max-width: 768px){
-    .login-page-body{
+    .sign-up-body{
         display: flex;
         justify-content: space-around;
         align-items: center;
         overflow: hidden;
     }
-    .login{
+    .sign-up{
         width: 90%;
         overflow: hidden;
     }
-    .forgot{
-        margin-left: 90px;
-    }
-    #login-btn{
-        margin-left: 120px;
-    }
-    .sing-up{
-        margin-left: 145px;
+    #sign-up-btn{
+        margin-left: 100px;
     }
 }

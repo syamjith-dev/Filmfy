@@ -132,7 +132,6 @@ router.post("/resend-otp", async (req, res) => {
       await User.findOne({ email });
 
     if (!user) {
-
       return res.status(404).json({
         message: "User not found"
       });
@@ -167,10 +166,44 @@ router.post("/resend-otp", async (req, res) => {
   }
 
 });
+//reset-psw
+router.post('/update-psw', async (req, res) => {
+
+  try {
+
+    const { email, newPassword, confirmPassword } = req.body;
+
+    //compare password
+    if (newPassword === confirmPassword) {
+      const hashedPassword =
+        await bcrypt.hash(newPassword, 10);
+
+      await User.updateOne(
+        { email: email },
+        {
+          $set: {
+            password: hashedPassword
+          }
+        }
+      );
+      return res.status(200).json({
+        message: "Updated the password"
+      })
+    } else {
+      return res.status(400).json({
+        success: false,
+        message: "Password is not match!"
+      });
+    }
 
 
 
-// LOGIN
+  } catch {
+
+  }
+
+});
+
 // LOGIN
 router.post("/login", async (req, res) => {
 

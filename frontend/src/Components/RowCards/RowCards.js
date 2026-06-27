@@ -12,8 +12,52 @@ const RowCards = (props) => {
   const [selectedMovie, setSelectedMovie] = useState(null)
   const { setUrlId } = useContext(PlayerContext);
   const [addedMovies, setAddedMovies] = useState([])
+  const [logo, setLogo] = useState(null);
 
   const rowRef = useRef();
+
+  const fetchMovieLogo = async (movieId) => {
+    setLogo(null)
+
+    try {
+
+      const response = await axios.get(
+        `/movie/${movieId}/images?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
+      );
+
+      const logos = response.data.logos;
+
+      const englishLogo =
+        logos.find(
+          logo => logo.iso_639_1 === "en"
+        );
+
+      if (englishLogo) {
+
+        setLogo(
+          englishLogo.file_path
+        );
+
+      } else if (logos.length > 0) {
+
+        setLogo(
+          logos[0].file_path
+        );
+      }
+
+    } catch (error) {
+
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+
+    if (selectedMovie?.id) {
+      fetchMovieLogo(selectedMovie.id);
+    }
+
+  }, [selectedMovie]);
 
   // FETCH MOVIES
   useEffect(() => {
@@ -131,7 +175,7 @@ const RowCards = (props) => {
           {/* LEFT ARROW */}
           <i
             onClick={scrollLeft}
-            className="bx bx-caret-left left-arrow" style={{display:'none'}}
+            className="bx bx-caret-left left-arrow" 
           />
 
           {/* POSTERS */}
@@ -159,7 +203,7 @@ const RowCards = (props) => {
           {/* RIGHT ARROW */}
           <i
             onClick={scrollRight}
-            className="bx bx-caret-right right-arrow" style={{display:'none'}}
+            className="bx bx-caret-right right-arrow" 
           />
 
         </div>
@@ -192,9 +236,23 @@ const RowCards = (props) => {
             {/* CONTENT */}
             <div className='modal-content'>
 
-              <h1>
-                {selectedMovie.title}
-              </h1>
+              <h1 className='tittle'>{
+                logo ? (
+
+                  <img
+                    src={`${imageUrl}${logo}`}
+                    alt="movie logo"
+                    className="rowcard_logo"
+                  />
+
+                ) : (
+
+                  <h1 className="tittle">
+                    {selectedMovie.title}
+                  </h1>
+
+                )
+              }</h1>
 
               <div className='movie-info'>
 

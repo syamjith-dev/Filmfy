@@ -7,6 +7,7 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
+  
   const [open, setOpen] = useState(false);
 
   const handleLogout = () => {

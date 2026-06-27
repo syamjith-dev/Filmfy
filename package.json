@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "cineverse",
+  "name": "filmfy",
   "version": "1.0.0",
   "description": "",
   "main": "backend/server.js",

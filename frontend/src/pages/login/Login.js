@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.css';
+import "./Login.css";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -25,7 +25,7 @@ const Login = () => {
     try {
 
       const res = await axios.post(
-        'http://localhost:5000/api/auth/login',
+        'https://cineverse-5xo9.onrender.com/api/auth/login',
         {
           email: loginData.email,
           password: loginData.password
