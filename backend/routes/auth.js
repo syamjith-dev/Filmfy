@@ -28,15 +28,9 @@ router.post("/signup", async (req, res) => {
     const hashedPassword =
       await bcrypt.hash(password, 10);
 
-    // console.log("Signup Request:", email);
-
     const otp = Math.floor(
       100000 + Math.random() * 900000
     ).toString();
-
-    const otpExpiry = new Date(
-      Date.now() + 60 * 1000
-    );
 
     const user = new User({
       name,
@@ -72,7 +66,7 @@ router.post("/signup", async (req, res) => {
   }
 
 });
-
+//verfy-otp
 router.post("/verify-otp", async (req, res) => {
 
   try {

@@ -2,8 +2,8 @@ require("dotenv").config({
   path: "./backend/.env"
 });
 
-console.log("EMAIL:", process.env.EMAIL);
-console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD ? "Loaded" : "Not Loaded");
+console.log("EMAIL:", process.env.EMAIL_FROM);
+
 
 const express = require("express");
 const mongoose = require("mongoose");
