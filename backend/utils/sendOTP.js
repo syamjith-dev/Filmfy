@@ -88,17 +88,12 @@ const sendOTP = async (email, otp) => {
         </html>`,
     });
 
-    console.log(response);
 
-    if (error) {
-      console.error(error);
-      throw new Error(error.message);
-    }
+    console.log("Email Sent:", response);
 
-    console.log("Email sent successfully");
-    return data;
+    return response;
   } catch (err) {
-    console.error(err);
+    console.error("Email Error:", err);
     throw err;
   }
 };
