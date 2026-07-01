@@ -62,6 +62,14 @@
     font-family: 'Poppins', sans-serif;
     box-shadow: 0px 9px 0px -6px #ff000d;
 }
+.password-toggle {
+    margin-left: -55px;
+    margin-top: 15px;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+}
 #reset-btn{
     background: #e50914;
     margin: 30px 130px;

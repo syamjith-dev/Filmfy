@@ -65,8 +65,16 @@
     font-family: 'Quicksand', sans-serif;
     box-shadow: 0px 9px 0px -6px #ff000d;
     border: 1px solid #525252ac;
+    position: relative;
 }
-
+.password-toggle {
+    margin-left: -55px;
+    margin-top: 15px;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+}
 
 #sign-up-btn{
     background: #e50914;
@@ -85,6 +93,13 @@
     background: #fff;
     color: #000000;
     cursor: pointer;
+}
+.login-btn{
+    color: #00bbff;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 44%;
+    font-size: 20px;
+    
 }
 @media (max-width: 768px){
     .sign-up-body{

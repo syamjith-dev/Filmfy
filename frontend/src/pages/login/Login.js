@@ -7,6 +7,8 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
@@ -95,16 +97,26 @@ const Login = () => {
 
           <br />
 
-          <input
-            className='input-form'
-            id='password'
-            name='password'
-            type="password"
-            placeholder='Enter Password'
-            value={loginData.password}
-            onChange={handleChange}
-            required
-          />
+          <div className="password-container">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              className='input-form'
+              name="password"
+              placeholder="Enter Password"
+              value={loginData.password}
+              onChange={handleChange}
+              required
+            />
+
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="password-toggle"
+            >
+              {showPassword ? <i class="bx bx-eye-closed" style={{ color: '#ffffff' }} /> : <i class="bx bx-eye-alt" style={{ color: '#ffffff' }} />}
+            </button>
+          </div>
 
           <br />
 
@@ -124,14 +136,14 @@ const Login = () => {
             Login
           </button>
 
-        
-            <Link
-              to="/sign-up"
-              className='sing-up'
-            >
-              Sign up
-            </Link>
-          
+
+          <Link
+            to="/sign-up"
+            className='sing-up'
+          >
+            Sign up
+          </Link>
+
 
         </form>
 

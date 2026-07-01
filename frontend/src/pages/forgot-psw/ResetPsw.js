@@ -9,6 +9,8 @@ const ResetPsw = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    const [showPassword, setShowPassword] = useState(false);
+
     const email = location.state?.email;
 
     const [userData, setUserData] = useState({
@@ -65,13 +67,20 @@ const ResetPsw = () => {
 
                     <input
                         className='input-form'
-                        type="Password"
+                        type={showPassword ? "text" : "password"}
                         name="newPassword"
                         placeholder="Enter new Password"
                         value={userData.newPassword}
                         onChange={handleChange}
                         required
                     />
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="password-toggle"
+                    >
+                        {showPassword ? <i class="bx bx-eye-closed" style={{ color: '#ffffff' }} /> : <i class="bx bx-eye-alt" style={{ color: '#ffffff' }} />}
+                    </button>
 
                     <label htmlFor="email" className='label'>Condirm password</label>
 
@@ -79,12 +88,19 @@ const ResetPsw = () => {
                         className='input-form'
                         id='confirmPassword'
                         name='confirmPassword'
-                        type="Password"
+                        type={showPassword ? "text" : "password"}
                         placeholder='Enter Password'
                         value={userData.confirmPassword}
                         onChange={handleChange}
                         required
                     />
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="password-toggle"
+                    >
+                        {showPassword ? <i class="bx bx-eye-closed" style={{ color: '#ffffff' }} /> : <i class="bx bx-eye-alt" style={{ color: '#ffffff' }} />}
+                    </button>
 
                     <button id="reset-btn">Reset password</button>
                 </form>

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './sign-up.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const SignUp = () => {
 
   const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const [userData, setUserData] = useState({
     firstName: '',
@@ -25,7 +27,7 @@ const SignUp = () => {
 
     try {
 
-      await axios.post(
+       await axios.post(
         'https://cineverse-5xo9.onrender.com/api/auth/signup',
         {
           name: userData.firstName,
@@ -55,6 +57,7 @@ const SignUp = () => {
       );
     }
   };
+
 
   return (
     <div className='sign-up-body'>
@@ -101,29 +104,35 @@ const SignUp = () => {
             required
           />
 
-          <br />
-
-          <label htmlFor="password">
-            Password
-          </label>
 
           <br />
 
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter Password"
-            value={userData.password}
-            onChange={handleChange}
-            required
-          />
+          <div className="password-container">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              name="password"
+              placeholder="Enter Password"
+              value={userData.password}
+              onChange={handleChange}
+              required
+            />
+
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="password-toggle"
+            >
+              {showPassword ? <i class="bx bx-eye-closed" style={{color:'#ffffff'}} /> : <i class="bx bx-eye-alt" style={{color:'#ffffff'}} />}
+            </button>
+          </div>
 
           <br />
 
           <button type="submit" id="sign-up-btn">
             Sign Up
           </button>
+          <Link to='/login' className="login-btn">Login</Link>
 
         </form>
 
