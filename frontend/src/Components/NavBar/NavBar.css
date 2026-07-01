@@ -4,7 +4,7 @@
     width: 101%;
     height: 65px;
     margin-left: -8px;
-    background: linear-gradient(to bottom, #1818188d, #0e0e0e3e);
+    /* background: linear-gradient(to bottom, #181818, #0e0e0e93); */
     z-index: 999;
 }
 
@@ -18,8 +18,22 @@
 }
 
 .logo {
-    width: 12%;
-    height: 65px;
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.464);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgb(0, 0, 0);
+    padding: 5px 25px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.logo span {
+    /* font-size: 35px; */
+    color: #ff0000;
 }
 
 .ul-list {
@@ -31,11 +45,19 @@
 }
 
 .mylist {
-    color: #bbbbbb;
+    color: #ffffff;
     font-family: 'Quicksand', sans-serif;
     transition: .5s;
     font-size: 20px;
     text-decoration: none;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.582);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgb(0, 0, 0);
+    padding: 5px 25px;
+    border-radius: 15px;
 }
 
 .mylist:hover {
@@ -93,19 +115,26 @@
 
 .sign-btn {
     margin-left: -60px;
-    margin-top: -25px;
-    font-size: 23px;
+    font-size: 20px;
     color: #ffff;
-    position: relative;
     text-decoration: none;
     font-family: 'Quicksand', sans-serif;
-    /* background: #034db4; */
+    background: rgba(255, 255, 255, 0.214);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.464);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.992);
+    padding: 5px 25px;
+    border-radius: 15px;
 }
 
 .bx-arrow-in-right-square-half {
-    font-size: 30px;
+    font-size: 20px;
+    right: 10px;
     position: absolute;
-    left: -35px;
+    right: 80px;
+    top: 8px;
 }
 
 
@@ -114,26 +143,31 @@
 
 
 @media (max-width: 768px) {
-    #navbar{
+    #navbar {
         height: 55px;
         position: absolute;
         z-index: 999;
     }
-    .logo{
+
+    .logo {
         width: 100px;
     }
-    .ul-list{
+
+    .ul-list {
         display: flex;
         justify-content: flex-end;
         align-items: center;
     }
-    .mylist{
+
+    .mylist {
         display: none;
     }
-    .user_name{
+
+    .user_name {
         font-size: 20px;
     }
-    .sign-btn{
+
+    .sign-btn {
         margin-left: -40px;
         font-size: 20px;
     }

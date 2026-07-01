@@ -19,7 +19,6 @@ const NavBar = () => {
   const handleWatchlistClick = () => {
     if (!user) {
       alert("Please login first!");
-      navigate("/login");
     } else {
       navigate("/watchlist");
     }
@@ -29,7 +28,7 @@ const NavBar = () => {
   return (
     <div id='navbar'>
       <div className="nav-list">
-        <img className='logo' src="/logo.webp" alt="logo" />
+        <h1 className='logo'><span>F</span>ilmfy</h1>
         <ul className='ul-list'>
           <h3 onClick={handleWatchlistClick} className='mylist'>
             <i className="bxf bx-list-play" style={{ color: "#ff0000" }} /> My List

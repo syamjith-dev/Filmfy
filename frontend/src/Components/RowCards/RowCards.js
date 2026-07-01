@@ -7,6 +7,7 @@ import { PlayerContext } from '../../Context/PlayerContext';
 
 const RowCards = (props) => {
 
+   const user = JSON.parse(localStorage.getItem("user"));
 
   const [posters, setPosters] = useState([])
   const [selectedMovie, setSelectedMovie] = useState(null)
@@ -82,12 +83,16 @@ const RowCards = (props) => {
   const handleMovie = (id) => {
     console.log(id)
     axios.get(`/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`).then((response) => {
-      if (response.data.results.length !== 0) {
-        console.log(response.data.results)
-        setUrlId(response.data.results[0].key)
+      if (!user) {
+        alert('Please login first!!');
       } else {
-        console.log("trailer not available")
-        alert("Sorry trailer not availble!")
+        if (response.data.results.length !== 0) {
+          console.log(response.data.results)
+          setUrlId(response.data.results[0].key)
+        } else {
+          console.log("trailer not available")
+          alert("Sorry trailer not availble!")
+        }
       }
 
     })
@@ -175,7 +180,8 @@ const RowCards = (props) => {
           {/* LEFT ARROW */}
           <i
             onClick={scrollLeft}
-            className="bx bx-caret-left left-arrow" 
+            className="bx bx-caret-left left-arrow"
+            id='left-arrow'
           />
 
           {/* POSTERS */}
@@ -203,7 +209,8 @@ const RowCards = (props) => {
           {/* RIGHT ARROW */}
           <i
             onClick={scrollRight}
-            className="bx bx-caret-right right-arrow" 
+            className="bx bx-caret-right right-arrow"
+            id='right-arrow'
           />
 
         </div>

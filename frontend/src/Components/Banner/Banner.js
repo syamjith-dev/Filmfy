@@ -12,6 +12,8 @@ const Banner = (props) => {
 
     const rowRef = useRef();
 
+    const user = JSON.parse(localStorage.getItem("user"));
+
     const [posters, setPosters] = useState([])
     const [movie, setMovie] = useState({})
     const { setUrlId } = useContext(PlayerContext);
@@ -41,12 +43,16 @@ const Banner = (props) => {
     const handleMovie = (id) => {
         console.log(id)
         axios.get(`/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`).then((response) => {
-            if (response.data.results.length !== 0) {
-                console.log(response.data.results)
-                setUrlId(response.data.results[0].key)
+            if (!user) {
+                alert("please login first!!")
             } else {
-                console.log("trailer not available")
-                alert("Sorry trailer not availble!")
+                if (response.data.results.length !== 0) {
+                    console.log(response.data.results)
+                    setUrlId(response.data.results[0].key)
+                } else {
+                    console.log("trailer not available")
+                    alert("Sorry trailer not availble!")
+                }
             }
 
         })

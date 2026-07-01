@@ -288,11 +288,11 @@
         margin-bottom: 10px;
     }
 
-    .left-arrow {
+    #left-arrow {
         display: none;
     }
 
-    .right-arrow {
+    #right-arrow {
         display: none;
     }
 }
