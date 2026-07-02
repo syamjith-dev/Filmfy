@@ -1,16 +1,10 @@
-const { Resend } = require("resend");
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = require("./mail");
 
 const sendOTP = async (email, otp) => {
-  try {
-
-    console.log("OTP Generated:", otp);
-
-    const response = await resend.emails.send({
-      from: "Filmfy <onboarding@resend.dev>",
-      to: email,
-      subject: "Verify your Filmfy Account",
+  await transporter.sendMail({
+    from: `Filmfy <${process.env.EMAIL_FROM}>`,
+    to: email,
+    subject: "Verify Your Email",
       html: `
               <!DOCTYPE html>
               <html>
@@ -87,15 +81,5 @@ const sendOTP = async (email, otp) => {
          </body>
         </html>`,
     });
-
-
-    console.log("Email Sent:", response);
-
-    return response;
-  } catch (err) {
-    console.error("Email Error:", err);
-    throw err;
-  }
-};
-
+}
 module.exports = sendOTP;
