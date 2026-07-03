@@ -2,7 +2,8 @@ require("dotenv").config({
   path: "./backend/.env"
 });
 
-console.log("EMAIL:", process.env.BREVO_USER);
+console.log(process.env.BREVO_USER);
+console.log(process.env.BREVO_PASS?.slice(0, 10));
 
 
 const express = require("express");
