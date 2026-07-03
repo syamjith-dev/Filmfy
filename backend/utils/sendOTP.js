@@ -3,14 +3,13 @@ const transporter = require("./mail");
 const sendOTP = async (email, otp) => {
   
   console.log("USER:", process.env.BREVO_USER);
-  console.log("FROM:", process.env.EMAIL_FROM);
 
   await transporter.verify();
 
   console.log("SMTP VERIFIED");
 
   await transporter.sendMail({
-    from: `Filmfy <${process.env.EMAIL_FROM}>`,
+    from: `Filmfy <${process.env.BREVO_USER}>`,
     to: email,
     subject: "Verify Your Email",
     html: `

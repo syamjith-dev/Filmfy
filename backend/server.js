@@ -2,7 +2,7 @@ require("dotenv").config({
   path: "./backend/.env"
 });
 
-console.log("EMAIL:", process.env.EMAIL_FROM);
+console.log("EMAIL:", process.env.BREVO_USER);
 
 
 const express = require("express");

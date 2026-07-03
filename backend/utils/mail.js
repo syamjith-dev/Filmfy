@@ -7,12 +7,20 @@ const transporter = nodemailer.createTransport({
   requireTLS: true,
   auth: {
     user: process.env.BREVO_USER,
-    pass: process.env.BREVO_PASS,
+    pass: process.env.BREVO_SMTP_KEY,
   },
 
   connectionTimeout: 30000,
   greetingTimeout: 30000,
   socketTimeout: 30000,
+});
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.log("SMTP Error:", error);
+  } else {
+    console.log("✅ SMTP Server is ready");
+  }
 });
 
 module.exports = transporter;
