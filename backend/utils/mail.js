@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 
 console.log("USER:", process.env.BREVO_USER);
-console.log("PASS exists:", !!process.env.BREVO_PASS);
+console.log("PASS exists:", !!process.env.BREVO_SMTP_KEY);
 
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: process.env.BREVO_USER,
-    pass: process.env.BREVO_PASS,
+    pass: process.env.BREVO_SMTP_KEY,
   },
 });
 
