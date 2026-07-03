@@ -3,7 +3,7 @@ require("dotenv").config({
 });
 
 console.log(process.env.BREVO_USER);
-console.log(process.env.BREVO_SMTP_KEY?.slice(0, 10));
+console.log(process.env.BREVO_API_KEY?.slice(0, 10));
 
 
 const express = require("express");
