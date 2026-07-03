@@ -1,19 +1,22 @@
-const transporter = require("./mail");
+const axios = require("axios");
 
 const sendOTP = async (email, otp) => {
-  
-  console.log("USER:", process.env.BREVO_USER);
-
-  await transporter.verify();
-
-  console.log("SMTP VERIFIED");
-
-  await transporter.sendMail({
-    from: `Filmfy <${process.env.BREVO_FROM}>`,
-    to: email,
-    subject: "Verify Your Email",
-    html: `
-              <!DOCTYPE html>
+  try {
+    const response = await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      {
+        sender: {
+          name: "Filmfy",
+          email: "syamjithloq@gmail.com", // നിങ്ങളുടെ Verified Sender
+        },
+        to: [
+          {
+            email: email,
+          },
+        ],
+        subject: "Verify Your Email - Filmfy",
+        htmlContent: `
+          <!DOCTYPE html>
               <html>
               <head>
               <meta charset="UTF-8">
@@ -86,7 +89,28 @@ const sendOTP = async (email, otp) => {
               </table>
 
          </body>
-        </html>`,
-  });
-}
+        </html>
+        `,
+      },
+      {
+        headers: {
+          accept: "application/json",
+          "api-key": process.env.BREVO_API_KEY,
+          "content-type": "application/json",
+        },
+      }
+    );
+
+    console.log("Email Sent:", response.data);
+
+    return true;
+  } catch (err) {
+    console.log(
+      err.response?.data || err.message
+    );
+
+    return false;
+  }
+};
+
 module.exports = sendOTP;
