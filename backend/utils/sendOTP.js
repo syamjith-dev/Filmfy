@@ -9,7 +9,7 @@ const sendOTP = async (email, otp) => {
   console.log("SMTP VERIFIED");
 
   await transporter.sendMail({
-    from: `Filmfy <${process.env.BREVO_USER}>`,
+    from: `Filmfy <${process.env.BREVO_FROM}>`,
     to: email,
     subject: "Verify Your Email",
     html: `
