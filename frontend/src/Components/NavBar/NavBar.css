@@ -74,7 +74,16 @@
     cursor: pointer;
     color: white;
     font-family: 'Quicksand', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.582);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgb(0, 0, 0);
+    padding: 5px 25px;
+    border-radius: 15px;
 }
 
 .bx-user {
@@ -86,15 +95,14 @@
 .dropdown-menu {
     position: absolute;
     top: 65px;
-    right: 130;
+    right: 100;
     width: 150px;
     background: #141414;
     border: 1px solid #333;
     border-radius: 8px;
 }
 
-.dropdown-menu a,
-.dropdown-menu button {
+.dropdown-menu .btn{
     display: block;
     width: 100%;
     padding: 12px 15px;
@@ -114,28 +122,39 @@
 }
 
 .sign-btn {
-    margin-left: -60px;
+    margin-left: -170px;
+    margin-top: -15px;
     font-size: 20px;
-    color: #ffff;
+    color: #000000;
     text-decoration: none;
-    font-family: 'Quicksand', sans-serif;
-    background: rgba(255, 255, 255, 0.214);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.464);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background: #ffffff;
+    border: 1px solid #0000007c;
     border-radius: 12px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.992);
     padding: 5px 25px;
     border-radius: 15px;
+    animation: pulse 2s ease-in-out infinite;
+    transition: 0.5s;
+    position: absolute;
+}
+.sign-btn:hover{
+    background-color: #ff0059;
+    color: #ffffff;
 }
 
-.bx-arrow-in-right-square-half {
-    font-size: 20px;
-    right: 10px;
-    position: absolute;
-    right: 80px;
-    top: 8px;
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Original size */
+  }
+  50% {
+    transform: scale(1.1); /* Grow to 115% */
+  }
+  100% {
+    transform: scale(1); /* Return to original size */
+  }
 }
+
 
 
 
@@ -168,7 +187,7 @@
     }
 
     .sign-btn {
-        margin-left: -40px;
+        margin-left: -160px;
         font-size: 20px;
     }
 

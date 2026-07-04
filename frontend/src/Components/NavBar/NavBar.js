@@ -24,6 +24,10 @@ const NavBar = () => {
     }
   };
 
+  const gotoWatchlist = () => {
+    navigate('/watchlist');
+  }
+
 
   return (
     <div id='navbar'>
@@ -51,8 +55,8 @@ const NavBar = () => {
 
                 {open && (
                   <div className="dropdown-menu">
-                    <Link to='/watchlist'><i className="bxf bx-list-play" style={{ color: "#ff0000" }} /> My List</Link>
-                    <button className='logout-btn' onClick={handleLogout}>
+                    <button onClick={gotoWatchlist} className='btn'><i className="bxf bx-list-play" style={{ color: "#ff0000" }} /> My List</button>
+                    <button className='btn' onClick={handleLogout}>
                       <i class="bxf bx-arrow-out-left-square-half" style={{ color: "#ff0000" }} /> Logout
                     </button>
                   </div>
@@ -60,9 +64,7 @@ const NavBar = () => {
 
               </div>
             ) : (
-              <Link to='/login' className='sign-btn'>
-                <i class="bxf bx-arrow-in-right-square-half" style={{ color: "#f10000" }} />Login
-              </Link>
+              <Link to='/sign-up' className='sign-btn'>Sign up free </Link>
             )}
           </div>
         </ul>
